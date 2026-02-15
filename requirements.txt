@@ -1,0 +1,6 @@
+flask
+obd
+scikit-learn
+joblib
+numpy
+pandas

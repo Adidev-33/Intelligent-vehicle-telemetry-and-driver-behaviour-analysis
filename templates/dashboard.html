@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<h1>🚗 Intelligent Vehicle Telemetry Dashboard</h1>
+
+<div class="card-container">
+
+    <div class="card">
+        <h2>Speed</h2>
+        <p id="speed">0 km/h</p>
+    </div>
+
+    <div class="card">
+        <h2>RPM</h2>
+        <p id="rpm">0</p>
+    </div>
+
+    <div class="card">
+        <h2>Throttle</h2>
+        <p id="throttle">0 %</p>
+    </div>
+
+    <div class="card">
+        <h2>Engine Temp</h2>
+        <p id="temp">0 °C</p>
+    </div>
+
+    <div class="card">
+        <h2>Driving Mode</h2>
+        <p id="mode">Smooth</p>
+        <p id="confidence">Confidence: 0 %</p>
+    </div>
+
+    <div class="card" style="width:300px;">
+        <h2>AI Explanation</h2>
+        <p id="explanation">Waiting for data...</p>
+    </div>
+
+</div>
+
+<div class="charts-row">
+    <div class="chart-container">
+        <canvas id="speedChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="rpmChart"></canvas>
+    </div>
+</div>
+
+<br><br>
+<a href="/"><button>⬅ Back to Home</button></a>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+</html>
