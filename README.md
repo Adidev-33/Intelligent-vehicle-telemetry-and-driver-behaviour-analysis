@@ -1,4 +1,4 @@
-# ?? Intelligent Vehicle Telemetry & AI Driving Analysis System
+# Intelligent Vehicle Telemetry & AI Driving Analysis System
 
 A real-time AI-powered Vehicle Telemetry Analysis (VTA) system built for
 Raspberry Pi using OBD-II data.
@@ -11,9 +11,9 @@ scale - Runs on Raspberry Pi
 
 ------------------------------------------------------------------------
 
-# ?? Features
+# Features
 
-## ?? Real-Time Telemetry
+## Real-Time Telemetry
 
 -   Speed
 -   RPM
@@ -22,23 +22,23 @@ scale - Runs on Raspberry Pi
 -   Live Graphs (Chart.js)
 -   Dynamic RPM scaling
 
-## ?? AI-Based Driving Classification
+## AI-Based Driving Classification
 
 Driving Modes: - Smooth - Normal - Aggressive - Rash
 
-## ?? Online Machine Learning
+## Online Machine Learning
 
 -   Uses SGDClassifier
 -   Feature scaling via StandardScaler
 -   Incremental retraining every 60 seconds
 -   Automatically improves with more data
 
-## ?? Explainable AI
+## Explainable AI
 
 Displays why a driving mode was chosen: - High RPM usage - Sudden
 acceleration - Rapid throttle input - Stable driving parameters
 
-## ?? Raspberry Pi Optimized
+## Raspberry Pi Optimized
 
 -   Lightweight ML model
 -   No GPU required
@@ -46,36 +46,46 @@ acceleration - Rapid throttle input - Stable driving parameters
 
 ------------------------------------------------------------------------
 
-# ?? Project Architecture
+# Project Architecture
 
-VTA/ � +-- src/ � +-- api/ ? Flask API (SSE stream) � +-- ai/ ? ML
-pipeline � � +-- models/ ? Saved models � � +-- inference.py � � +--
-online_trainer.py � � +-- explainability.py � � +--
-feature_engineering.py � � � +-- obd/ ? OBD connection & logging � +--
-main.py ? Application entry point � +-- static/ ? CSS & JS +--
-templates/ ? HTML pages +-- data/ ? Raw + training data +-- config.py
-+-- requirements.txt
+VTA/
+│
+├── src/
+│ ├── api/ → Flask API (SSE stream)
+│ ├── ai/ → ML pipeline
+│ │ ├── models/ → Saved models
+│ │ ├── inference.py
+│ │ ├── online_trainer.py
+│ │ ├── explainability.py
+│ │ └── feature_engineering.py
+│ │
+│ ├── obd/ → OBD connection & logging
+│ └── main.py → Application entry point
+│
+├── static/ → CSS & JS
+├── templates/ → HTML pages
+├── data/ → Raw + training data
+├── config.py
+└── requirements.txt
 
-------------------------------------------------------------------------
+#  Installation (Raspberry Pi)
 
-# ?? Installation (Raspberry Pi)
-
-## 1?? Install dependencies
+## 1 Install dependencies
 
 sudo apt update sudo apt install python3-pip python3-venv bluetooth
 
-## 2?? Setup project
+## 2 Setup project
 
 git clone `<your-repo>`{=html} cd VTA python3 -m venv venv source
 venv/bin/activate pip install -r requirements.txt
 
-## 3?? Pair OBD Device
+## 3 Pair OBD Device
 
-bluetoothctl scan on pair XX:XX:XX:XX:XX trust XX:XX:XX:XX:XX quit
+bluetoothctl scan on pair XX:XX:XX:XX:XX trust XX:XX:XX:XX:XX quit (Only once)
 
 Bind device: sudo rfcomm bind /dev/rfcomm0 XX:XX:XX:XX:XX
 
-## 4?? Run Application
+## 4 Run Application
 
 python -m src.main
 
@@ -83,7 +93,7 @@ Open browser: http://`<raspberry-pi-ip>`{=html}:5000
 
 ------------------------------------------------------------------------
 
-# ?? Sample Dataset Generation
+# Sample Dataset Generation
 
 If real driving data cannot be collected:
 
@@ -95,7 +105,7 @@ Restart app.
 
 ------------------------------------------------------------------------
 
-# ?? Future Improvements
+# Future Improvements
 
 -   Replace SGD with RandomForest
 -   Add LSTM time-series prediction
@@ -105,18 +115,3 @@ Restart app.
 -   Add performance analytics page
 -   Add cloud sync support
 -   Add multi-driver comparison
-
-------------------------------------------------------------------------
-
-# ? Disclaimer
-
-This is a research/demo system. Not intended for safety-critical
-automotive control.
-
-------------------------------------------------------------------------
-
-# ????? Author
-
-Intelligent Vehicle Telemetry System\
-Built using Flask + OBD + Machine Learning\
-Optimized for Raspberry Pi
